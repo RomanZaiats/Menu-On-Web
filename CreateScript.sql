@@ -1,0 +1,42 @@
+--hashing varchar value by MD5 algorithm 
+CREATE FUNCTION MD5(@value VARCHAR(255))
+RETURNS VARCHAR(32)
+AS
+BEGIN
+	RETURN SUBSTRING(sys.fn_sqlvarbasetostr(HASHBYTES('MD5', @value)),3,32);
+END;
+GO
+
+CREATE TABLE [User] (
+    Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [Login] VARCHAR(20) NOT NULL UNIQUE([Login]),
+    [Password] VARCHAR(MAX) NOT NULL CHECK(LEN([User].[Password])>3),
+    [Role] VARCHAR(MAX) NOT NULL DEFAULT('User') 
+);
+GO
+
+CREATE TABLE Comment (
+    Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    UserId INT NOT NULL FOREIGN KEY REFERENCES dbo.[User](Id),
+    [Text] NVARCHAR(MAX) NOT NULL 
+);
+GO
+
+CREATE TABLE Recipe (
+    Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    UserId INT NOT NULL FOREIGN KEY REFERENCES dbo.[User](Id),
+    [Text] NVARCHAR(MAX) NOT NULL,
+    [ImageUrl] VARCHAR(MAX) NULL
+);
+GO
+
+CREATE TABLE Likes (
+    UserId INT NOT NULL FOREIGN KEY REFERENCES dbo.[User](Id),
+    RecipeId INT NOT NULL FOREIGN KEY REFERENCES dbo.[Recipe](Id),
+    [Value] INT NOT NULL CHECK ([Value] IN(-1, 0, 1))
+);
+
+CREATE TABLE Favourites (
+    UserId INT NOT NULL FOREIGN KEY REFERENCES dbo.[User](Id),
+    RecipeId INT NOT NULL FOREIGN KEY REFERENCES dbo.[Recipe](Id)
+);
