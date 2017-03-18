@@ -1,0 +1,25 @@
+﻿<div class="-w- -no-padding items">
+    <div class="items--item" ng-repeat="recipe in vm.recipes">
+        <div class="items--item-img" style="background-image: url({{recipe.ImageUrl}})">
+            <div class="items--item-img-overflow">
+                <div class="items--item-menu">
+                    <div class="items--item-menu-item icon icon-add"></div>
+                    <div class="items--item-menu-item icon icon-like">
+                        <div class="-helper">{{recipe.Likes}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="items--item-description">
+            <div class="items--item-description-title">
+                {{recipe.Name}}
+            </div>
+            <div class="items--item-description-text">
+                {{recipe.Text.length > 150 ? recipe.Text.substring(0,150)+'...' : recipe.Text}}
+            </div>
+            <div class="items--item-description-button button -secondary">
+                Read more
+            </div>
+        </div>
+    </div>
+</div>

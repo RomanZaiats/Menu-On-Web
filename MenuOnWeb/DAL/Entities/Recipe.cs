@@ -21,6 +21,10 @@ namespace DAL
         public int UserId { get; set; }
 
         [Required]
+        [StringLength(30)]
+        public string Name { get; set; }
+
+        [Required]
         public string Text { get; set; }
 
         public string ImageUrl { get; set; }

@@ -1,31 +1,41 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu on web</title>
+    <link rel="stylesheet" href="~/Styles/general.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <script type="text/javascript" src="~/Scripts/libs/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <div class="-f- header">
+        <div class="-w- header--container">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+            </div>
+            <div class="header--buttons">
+                <a href="#" class="button -blue -without-right-border">Sign in</a>
+                <a href="#" class="button -dark-blue -without-left-border">Sign up</a>
+            </div>
+        </div>
+    </div>
+    <div class="-f- header--helper">
+    </div>
+    <div class="-f-" ng-app="mowApp" ng-controller="mowController as vm">
+        <div ui-view></div>
+    </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    <div class="-f- footer">
+        Copyright (c) 2017 All Rights Reserved.
+    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <script src="~/Scripts/libs/angular.min.js"></script>
+    <script src="~/Scripts/app/mow.controller.js"></script>
+    <script src="~/Scripts/app/mow.service.js"></script>
+    <script src="~/Scripts/libs/dirPagination.js"></script>
+    <script src="~/Scripts/libs/angular-ui-router.js"></script>
+</body>
+
+</html>
