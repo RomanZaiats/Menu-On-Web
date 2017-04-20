@@ -1,0 +1,74 @@
+﻿<div class="-f-">
+    <div class="-w- -no-padding single-recipe">
+        <div class="single-recipe--header" style="background-image: url({{vm.recipeToShow.ImageUrl}})">
+            <div class="single-recipe--info-line">
+                <div class="single-recipe--info-line-back-link" ng-click="vm.toHomePage()">
+                    &larr; back link
+                </div>
+                <div class="single-recipe--info-line-title">
+                    {{vm.recipeToShow.Name}}
+                </div>
+                <div class="single-recipe--likes-buttons">
+                    <div class="single-recipe--likes-buttons-item">
+                        <span class="icon icon-add"></span>
+                    </div>
+                    <div class="single-recipe--likes-buttons-item">
+                        <span class="icon icon-like"></span>
+                        <span class="-helper">{{vm.recipeToShow.Likes}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-recipe--right js-floating-block">
+                <div class="single-recipe--right-item single-recipe--ingredients">
+                    <div class="single-recipe--ingredients-title">
+                        Ingredients:
+                    </div>
+                    <div class="single-recipe--ingredients-item" ng-repeat="tag in vm.recipeToShow.Tags track by $index">
+                        <span class="icon icon-circle"></span>
+                        <span>{{tag}}</span>
+                    </div>
+                </div>
+                <div class="single-recipe--right-item">
+                    <div class="button -blue -text-center">
+                        Edit
+                    </div>
+                    <div class="button -blue -text-center" ng-click="vm.removeRecipe(vm.recipeToShow)">
+                        Delete
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-recipe--main">
+            <div class="single-recipe--main-content">
+                <div class="single-recipe--main-content-title">
+                    <span>{{vm.recipeToShow.Name}}</span>
+                </div>
+                <div class="single-recipe--main-content-text">
+                    {{vm.recipeToShow.Text}}
+                </div>
+            </div>
+            <div class="comments">
+                <div class="comments--tip-title">
+                    <span class="comments--tip-title-inner">
+                        {{vm.recipeToShow.comments.length}} Comments
+                    </span>
+                </div>
+                <div class="comments--item" ng-repeat="comment in vm.recipeToShow.comments">
+                    <div class="comments--item-img">
+                        <div class="comments--item-img-ava" style="background-image: url({{comment.AuthorAvatar}})">
+                        </div>
+                    </div>
+                    <div class="comments--item-content">
+                        <div class="comments--item-content-header">
+                            <span class="comments--item-content-title">{{comment.AuthorLogin}}</span>
+                            <span class="comments--item-content-date">{{comment.CreateDate}}</span>
+                        </div>
+                        <div class="comments--item-content-text">
+                            {{comment.Text}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

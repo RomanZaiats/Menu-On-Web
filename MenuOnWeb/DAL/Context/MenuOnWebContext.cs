@@ -22,16 +22,21 @@ namespace DAL
         {
             modelBuilder.Entity<Recipe>()
                 .Property(e => e.ImageUrl)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Recipe>()
                 .HasMany(e => e.Likes)
                 .WithRequired(e => e.Recipe)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Recipe>()
+                .HasMany(e => e.Comments)
+                .WithRequired(e => e.Recipe)
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Recipe>()
                 .HasMany(e => e.Users)
-                .WithMany(e => e.Recipes1)
+                .WithMany(e => e.FavouriteRecipes)
                 .Map(m => m.ToTable("Favourites").MapLeftKey("RecipeId").MapRightKey("UserId"));
 
             modelBuilder.Entity<User>()
@@ -49,7 +54,7 @@ namespace DAL
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Comments)
                 .WithRequired(e => e.User)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Recipes)
@@ -60,7 +65,7 @@ namespace DAL
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Likes)
                 .WithRequired(e => e.User)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }

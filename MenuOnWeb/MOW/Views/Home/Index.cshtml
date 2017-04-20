@@ -9,26 +9,65 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <script type="text/javascript" src="~/Scripts/libs/jquery-3.1.1.js"></script>
 </head>
-<body>
+<body ng-app="mowApp" ng-controller="mowController as vm">
     <div class="-f- header">
         <div class="-w- header--container">
             <div class="logo">
                 <img src="img/logo.png" alt="">
             </div>
-            <div class="header--buttons">
-                <a href="#" class="button -blue -without-right-border">Sign in</a>
-                <a href="#" class="button -dark-blue -without-left-border">Sign up</a>
+            <div class="header--buttons" ng-show="vm.isAuthorized === false">
+                <a href="#" class="button -blue -without-right-border js-open-modal" data-modal='#log_in'>Log in</a>
+                <a href="#" class="button -dark-blue -without-left-border js-open-modal" data-modal='#sign_up'>Sign up</a>
+            </div>
+            <div class="header--buttons" ng-show="vm.isAuthorized === true">
+                <button class="button -blue -without-right-border js-open-modal" ng-click="vm.toAddForm()">Add Recipe</button>
+                <button class="button -dark-blue -without-left-border js-open-modal" ng-click="vm.logOut()">Log Out</button>
             </div>
         </div>
     </div>
     <div class="-f- header--helper">
     </div>
-    <div class="-f-" ng-app="mowApp" ng-controller="mowController as vm">
+    <div class="-f-">
         <div ui-view></div>
     </div>
-
+    <div class="-f- footer--helper">
+    </div>
     <div class="-f- footer">
         Copyright (c) 2017 All Rights Reserved.
+    </div>
+
+    <div class="modal" id="log_in">
+        <div class="modal--overflow js-close-modal"></div>
+        <div class="modal--content">
+            <div class="modal--header">
+                <span>Please Log in</span>
+                <div class="modal--close js-close-modal"></div>
+            </div>
+            <div class="modal--container">
+                <form name="singInForm" class="modal--form" ng-submit="vm.singIn()">
+                    <input type="text" ng-model="vm.login" placeholder="Enter your login">
+                    <input type="password" ng-model="vm.password" placeholder="Your password">
+                    <input type="submit" value="Log in" class="button -primary" ng-disabled="singInForm.$invalid">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="sign_up">
+        <div class="modal--overflow js-close-modal"></div>
+        <div class="modal--content">
+            <div class="modal--header">
+                <span>Please Sign up</span>
+                <div class="modal--close js-close-modal"></div>
+            </div>
+            <div class="modal--container">
+                <form name="singUpForm" class="modal--form"  ng-submit="vm.singUp()">
+                    <input type="text" ng-model="vm.login" placeholder="Enter your login">
+                    <input type="password"  ng-model="vm.password" placeholder="Your password">
+                    <input type="password"  ng-model="vm.confirmPassword" placeholder="Confirm password">
+                    <input type="submit" name="" value="Log in" class="button -primary" ng-disabled="singUpForm.$invalid || vm.password !== vm.confirmPassword">
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="~/Scripts/libs/angular.min.js"></script>
@@ -36,6 +75,7 @@
     <script src="~/Scripts/app/mow.service.js"></script>
     <script src="~/Scripts/libs/dirPagination.js"></script>
     <script src="~/Scripts/libs/angular-ui-router.js"></script>
+    <script src="~/Scripts/main.js" charset="utf-8"></script>
 </body>
 
 </html>

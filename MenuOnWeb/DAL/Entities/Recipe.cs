@@ -14,6 +14,7 @@ namespace DAL
         {
             Likes = new HashSet<Like>();
             Users = new HashSet<User>();
+            Comments = new HashSet<Comment>();
         }
 
         public int Id { get; set; }
@@ -29,6 +30,10 @@ namespace DAL
 
         public string ImageUrl { get; set; }
 
+        public string Tags { get; set; }
+
+        public DateTime CreateDate { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Like> Likes { get; set; }
 
@@ -36,5 +41,8 @@ namespace DAL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

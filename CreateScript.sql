@@ -27,7 +27,8 @@ CREATE TABLE Recipe (
     UserId INT NOT NULL FOREIGN KEY REFERENCES dbo.[User](Id),
     [Name] NVARCHAR(30) NOT NULL, 
     [Text] NVARCHAR(MAX) NOT NULL,
-    [ImageUrl] VARCHAR(MAX) NULL
+    [ImageUrl] VARCHAR(MAX) NULL,
+    [Tags] VARCHAR(MAX) NOT NULL
 );
 GO
 

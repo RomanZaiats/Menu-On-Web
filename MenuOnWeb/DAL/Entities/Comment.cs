@@ -13,9 +13,15 @@ namespace DAL
 
         public int UserId { get; set; }
 
+        public int RecipeId { get; set; }
+
         [Required]
         public string Text { get; set; }
 
+        public DateTime CreateDate { get; set; }
+
         public virtual User User { get; set; }
+
+        public virtual Recipe Recipe { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace DAL
             Comments = new HashSet<Comment>();
             Recipes = new HashSet<Recipe>();
             Likes = new HashSet<Like>();
-            Recipes1 = new HashSet<Recipe>();
+            FavouriteRecipes = new HashSet<Recipe>();
         }
 
         public int Id { get; set; }
@@ -42,6 +42,6 @@ namespace DAL
         public virtual ICollection<Like> Likes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Recipe> Recipes1 { get; set; }
+        public virtual ICollection<Recipe> FavouriteRecipes { get; set; }
     }
 }

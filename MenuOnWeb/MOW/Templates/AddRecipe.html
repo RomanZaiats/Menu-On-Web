@@ -1,0 +1,38 @@
+﻿<div class="-w- -no-padding">
+    <form class="single-recipe" ng-submit="vm.onAddNewRecipe()">
+        <div class="single-recipe--header" style="background-image: url(img/recipe-default-img.png)">
+            <div class="single-recipe--info-line">
+                <div class="single-recipe--info-line-back-link" ng-click="vm.toHomePage()">
+                    &larr; back link
+                </div>
+                <div class="single-recipe--info-line-title">
+                    <input type="text" name="title" ng-model="vm.recipeToAdd.Name">
+                </div>
+                <div class="single-recipe--likes-buttons">
+                    <input type="text" name="bg" ng-model="vm.recipeToAdd.ImageUrl">
+                </div>
+            </div>
+            <div class="single-recipe--right js-floating-block">
+                <div class="single-recipe--right-item single-recipe--ingredients">
+                    <div class="single-recipe--ingredients-title">
+                        Ingredients:
+                    </div>
+                    <div class="single-recipe--ingredients-item">
+                        <textarea name="ingredients" ng-model="vm.Ingridients"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-recipe--main">
+            <div class="single-recipe--main-content">
+                <div class="single-recipe--main-content-title">
+                    <span>Directions</span>
+                </div>
+                <div class="single-recipe--main-content-text">
+                    <textarea name="text" ng-model="vm.recipeToAdd.Text"></textarea>
+                    <input type="submit" name="submit" value="Submit" class="button -primary">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

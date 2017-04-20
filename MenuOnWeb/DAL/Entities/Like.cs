@@ -18,9 +18,6 @@ namespace DAL
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RecipeId { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Value { get; set; }
 
         public virtual Recipe Recipe { get; set; }

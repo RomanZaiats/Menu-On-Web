@@ -123,6 +123,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\LikesModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\VerifyUserModel.cs" />
     <Compile Include="Models\ViewRecipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -134,10 +138,13 @@
     <Content Include="img\add-white.png" />
     <Content Include="img\bg-footer.png" />
     <Content Include="img\bg.png" />
+    <Content Include="img\circle.svg" />
     <Content Include="img\like-pink.png" />
     <Content Include="img\like-white.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\no-ava.png" />
     <Content Include="img\recipe-default-img.png" />
+    <Content Include="img\x.svg" />
     <Content Include="Scripts\app\mow.controller.js" />
     <Content Include="Scripts\app\mow.service.js" />
     <Content Include="Scripts\libs\angular-mocks.js" />
@@ -148,8 +155,14 @@
     <Content Include="Scripts\libs\angular.min.js" />
     <Content Include="Scripts\libs\dirPagination.js" />
     <Content Include="Scripts\libs\jquery-3.1.1.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Styles\general.css" />
+    <Content Include="Templates\AddRecipe.html" />
+    <Content Include="Templates\EditRecipe.html" />
     <Content Include="Templates\HomePage.html" />
+    <Content Include="Templates\ShowRecipe.html" />
+    <Content Include="Templates\SingInForm.html" />
+    <Content Include="Templates\SingUpForm.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -163,12 +176,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\libs\angular-route.min.js.map" />
     <Content Include="Scripts\libs\angular.min.js.map" />
